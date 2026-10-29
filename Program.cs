@@ -19,17 +19,20 @@ namespace Block106SampleProject
             string gcashLink = "https://drive.google.com/drive/folders/1hH4QPs4izb-cUJTIHn4yTodezOnEH34-?usp=sharing";
 
             Console.WriteLine();
-            Console.WriteLine("Gcash link: " + gcashLink); 
+            Console.WriteLine("Gcash link: " + gcashLink);
             Console.WriteLine("Any amount will do");
             Console.WriteLine("Charity Purpose");
 
             Console.WriteLine("\nLets play a game!");
 
-            int lives = 10;
+            int lives = 5;
 
             while (lives > 0)
             {
-                Console.Write("\nWhat gas do plants absorb from the air for photosynthesis?");
+                string question1 = ("\nWhat gas do plants absorb from the air for photosynthesis?" +
+                    "\nEnter your answer here: ");
+                
+                Console.Write($"\n{question1}");
                 var answer = Console.ReadLine().Trim().ToLower();
 
                 if (answer == "carbon dioxide" || answer == "co2")
@@ -40,17 +43,24 @@ namespace Block106SampleProject
                 else
                 {
                     lives--;
-                    Console.WriteLine($"Incorrect! You have {lives} lives left.");
+                    Console.WriteLine($"\nINCORRECT! You have {lives} lives left.");
 
                 }
-                
 
+            }
 
+            if (lives == 0)
+            {
+                Console.WriteLine("\nYou have no lives left. Game over!");
             }
 
 
 
-        }
 
+
+
+
+        }
+        
     }
 }
