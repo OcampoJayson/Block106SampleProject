@@ -23,6 +23,8 @@ namespace Block106SampleProject
             Console.WriteLine("Any amount will do");
             Console.WriteLine("Charity Purpose");
 
+            Console.WriteLine("Hello??? - Mose");
+
 
         }
 
