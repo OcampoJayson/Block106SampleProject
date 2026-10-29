@@ -12,6 +12,7 @@ namespace Block106SampleProject
         {
             Console.WriteLine("Block 106");
             Console.WriteLine("Hello Block 106");
+            Console.WriteLine("Hello Block 101");
 
         }
 
