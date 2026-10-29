@@ -11,6 +11,7 @@ namespace Block106SampleProject
         static void Main(string[] args)
         {
             Console.WriteLine("Block 106");
+            Console.WriteLine("Hello Block 106");
 
         }
 
