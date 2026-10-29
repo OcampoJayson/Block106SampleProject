@@ -23,13 +23,13 @@ namespace Block106SampleProject
             Console.WriteLine("Any amount will do");
             Console.WriteLine("Charity Purpose");
 
-            Console.WriteLine("Lets play a game!");
+            Console.WriteLine("\nLets play a game!");
 
             int lives = 10;
 
             while (lives > 0)
             {
-                Console.Write("What gas do plants absorb from the air for photosynthesis?");
+                Console.Write("\nWhat gas do plants absorb from the air for photosynthesis?");
                 var answer = Console.ReadLine().Trim().ToLower();
 
                 if (answer == "carbon dioxide" || answer == "co2")
