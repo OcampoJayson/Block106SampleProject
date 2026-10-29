@@ -16,6 +16,14 @@ namespace Block106SampleProject
 
             Console.WriteLine("Test");
 
+            string gcashLink = "https://drive.google.com/drive/folders/1hH4QPs4izb-cUJTIHn4yTodezOnEH34-?usp=sharing";
+
+            Console.WriteLine();
+            Console.WriteLine("Gcash link: " + gcashLink); 
+            Console.WriteLine("Any amount will do");
+            Console.WriteLine("Charity Purpose");
+
+
         }
 
     }
