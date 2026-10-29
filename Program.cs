@@ -14,6 +14,8 @@ namespace Block106SampleProject
             Console.WriteLine("Hello Block 106");
             Console.WriteLine("Hello po - Rio");
 
+            Console.WriteLine("Test");
+
         }
 
     }
