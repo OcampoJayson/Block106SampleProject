@@ -31,7 +31,7 @@ namespace Block106SampleProject
             {
                 string question1 = ("\nWhat gas do plants absorb from the air for photosynthesis?" +
                     "\nEnter your answer here: ");
-                
+
                 Console.Write($"\n{question1}");
                 var answer = Console.ReadLine().Trim().ToLower();
 
@@ -54,13 +54,72 @@ namespace Block106SampleProject
                 Console.WriteLine("\nYou have no lives left. Game over!");
             }
 
+            Console.WriteLine("\n===================================================================================");
 
+            Console.Write("\nEnter number of vehicles: ");
+            int numberOfVehicles = Convert.ToInt32(Console.ReadLine());
 
+            double totalTollFee = 0;
+            for (int i = 1; i <= numberOfVehicles; i++)
+            {
+                string vehicleType = ($"\nVehicle #{i}" +
+                    "\n1 - Motorcycle" +
+                    "\n2 - Car" +
+                    "\n3 - Bus" +
+                    "\n4 - Truck" +
+                    "\nEnter vehicle type: ");
 
+                Console.Write(($"\n{vehicleType}"));
+                var vehicleTypeInput = Convert.ToInt32(Console.ReadLine());
 
+                Console.Write("Enter distance traveled (km): ");
+                var distanceTraveled = Convert.ToInt32(Console.ReadLine());
+
+                switch (vehicleTypeInput)
+                {
+                    case 1:
+                        totalTollFee = CalculateTollFee(distanceTraveled,10,totalTollFee);
+                        break;
+                    case 2:
+                        totalTollFee = CalculateTollFee(distanceTraveled,20,totalTollFee);
+                        break;
+                    case 3:
+                        totalTollFee =  CalculateTollFee(distanceTraveled,30,totalTollFee);
+                        break;
+                    case 4:
+                        totalTollFee = CalculateTollFee(distanceTraveled,40,totalTollFee);
+                        break;
+                }
+            }
+            Console.WriteLine($"\nTotal Toll Collection: {totalTollFee:F2}");
+            Console.WriteLine("===================================================================================");
 
 
         }
-        
+        static double CalculateTollFee(int distanceTravled, int TollRate, double totalTollFee)
+        {
+
+            if (distanceTravled < 100)
+            {
+
+                double tollFee = distanceTravled * TollRate;
+                Console.WriteLine("No discount applied.");
+                Console.WriteLine($"Distance: {distanceTravled} km");
+                Console.WriteLine($"Toll fee: {tollFee:F2}");
+
+                totalTollFee += tollFee;
+                return totalTollFee;
+            }
+            else
+            {
+                Console.WriteLine("10% discount applied.");
+                double tollFee = ((distanceTravled * TollRate) * 0.9);
+                Console.WriteLine($"Distance: {distanceTravled} km");
+                Console.WriteLine($"Toll fee: {tollFee:F2}");
+
+                totalTollFee += tollFee;
+                return totalTollFee;
+            }
+        }   
     }
 }
