@@ -89,6 +89,10 @@ namespace Block106SampleProject
                     case 4:
                         totalTollFee = CalculateTollFee(distanceTraveled,40,totalTollFee);
                         break;
+                    default:
+                        Console.WriteLine("Invalid vehicle type. Please enter a number between 1 and 4.");
+                        i--; 
+                        break;
                 }
             }
             Console.WriteLine($"\nTotal Toll Collection: {totalTollFee:F2}");
