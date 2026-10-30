@@ -78,26 +78,27 @@ namespace Block106SampleProject
                 switch (vehicleTypeInput)
                 {
                     case 1:
-                        totalTollFee = CalculateTollFee(distanceTraveled,10,totalTollFee);
+                        totalTollFee = CalculateTollFee(distanceTraveled, 10, totalTollFee);
                         break;
                     case 2:
-                        totalTollFee = CalculateTollFee(distanceTraveled,20,totalTollFee);
+                        totalTollFee = CalculateTollFee(distanceTraveled, 20, totalTollFee);
                         break;
                     case 3:
-                        totalTollFee =  CalculateTollFee(distanceTraveled,30,totalTollFee);
+                        totalTollFee = CalculateTollFee(distanceTraveled, 30, totalTollFee);
                         break;
                     case 4:
-                        totalTollFee = CalculateTollFee(distanceTraveled,40,totalTollFee);
+                        totalTollFee = CalculateTollFee(distanceTraveled, 40, totalTollFee);
                         break;
                     default:
                         Console.WriteLine("Invalid vehicle type. Please enter a number between 1 and 4.");
-                        i--; 
+                        i--;
                         break;
                 }
             }
             Console.WriteLine($"\nTotal Toll Collection: {totalTollFee:F2}");
             Console.WriteLine("===================================================================================");
 
+            DifferentMethod();
 
         }
         static double CalculateTollFee(int distanceTravled, int TollRate, double totalTollFee)
@@ -108,8 +109,7 @@ namespace Block106SampleProject
 
                 double tollFee = distanceTravled * TollRate;
                 Console.WriteLine("No discount applied.");
-                Console.WriteLine($"Distance: {distanceTravled} km");
-                Console.WriteLine($"Toll fee: {tollFee:F2}");
+                DisplayTollFee(distanceTravled, tollFee);
 
                 totalTollFee += tollFee;
                 return totalTollFee;
@@ -118,12 +118,84 @@ namespace Block106SampleProject
             {
                 Console.WriteLine("10% discount applied.");
                 double tollFee = ((distanceTravled * TollRate) * 0.9);
-                Console.WriteLine($"Distance: {distanceTravled} km");
-                Console.WriteLine($"Toll fee: {tollFee:F2}");
+                DisplayTollFee(distanceTravled, tollFee);
 
                 totalTollFee += tollFee;
                 return totalTollFee;
             }
-        }   
+        }
+
+        static void DisplayTollFee(int distanceTraveled, double tollFee)
+        {
+            Console.WriteLine($"Distance: {distanceTraveled} km");
+            Console.WriteLine($"Toll fee: {tollFee:F2}");
+        }
+
+        static void DifferentMethod()
+        {
+            Console.WriteLine("\n===================================================================================");
+
+            Console.Write("\nEnter number of vehicles: ");
+            int numberOfVehicles = Convert.ToInt32(Console.ReadLine());
+
+            double totalTollFee = 0;
+            double tollFee = 0;
+            for (int i = 1; i <= numberOfVehicles; i++)
+            {
+                string vehicleType = ($"\nVehicle #{i}" +
+                    "\n1 - Motorcycle" +
+                    "\n2 - Car" +
+                    "\n3 - Bus" +
+                    "\n4 - Truck" +
+                    "\nEnter vehicle type: ");
+
+                Console.Write(($"\n{vehicleType}"));
+                var vehicleTypeInput = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Enter distance traveled (km): ");
+                var distanceTraveled = Convert.ToInt32(Console.ReadLine());
+            
+                switch (vehicleTypeInput)
+                {
+                    case 1:
+                        tollFee = distanceTraveled * 10;
+                        break;
+                    case 2:
+                        tollFee = distanceTraveled * 20;
+                        break;
+                    case 3:
+                        tollFee = distanceTraveled * 30;
+                        break;
+                    case 4:
+                        tollFee = distanceTraveled * 40;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid vehicle type. Please enter a number between 1 and 4.");
+                        i--;
+                        break;
+                }
+
+                if (distanceTraveled < 100)
+                {
+                    Console.WriteLine("No discount applied.");
+                    DisplayTollFee(distanceTraveled, tollFee);
+                    totalTollFee+= tollFee;
+                }
+                else
+                {
+                    tollFee *= 0.9;
+                    Console.WriteLine("10% discount applied.");
+                    DisplayTollFee(distanceTraveled, tollFee);
+                    totalTollFee+= tollFee;
+                }
+            }
+            Console.WriteLine($"\nTotal Toll Collection: {totalTollFee:F2}");
+            Console.WriteLine("===================================================================================");
+
+
+
+
+        }
+
     }
 }
